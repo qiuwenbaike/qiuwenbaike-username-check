@@ -105,12 +105,12 @@ if (isset($info["cancreate"])) {
 <br>
 中文維基百科<a href="https://zh.wikipedia.org/wiki/Wikipedia:%E7%94%A8%E6%88%B7%E5%90%8D" target="_blank">用戶名方針</a>檢查：<br>
 <?php
-if (preg_match("/(管理員|行政員|監管員|使用者核查員|監督員|管理员|行政员|监管员|用户核查员|监督员|admin|sysop|moderator|bureaucrat|steward|checkuser|oversight)/i", $info["name"], $m)) {
+if (preg_match("/(管理員|行政員|監管員|使用者核查員|使用者查核員|監督員|管理员|行政员|监管员|用户核查员|用户查核员|监督员|admin|sysop|moderator|bureaucrat|steward|checkuser|oversight)/i", $info["name"], $m)) {
 	?><span style="color: red;">您的用戶名包含了字眼"<?=$m[1]?>"，可能誤導他人您的帳戶擁有特定權限</span><br><?php
 } else if (preg_match("/bot$/i", $info["name"], $m)) {
 	?><span style="color: red;">您的用戶名以"bot"結尾，這被保留給機器人使用，除非您要建立一個機器人帳戶</span><br><?php
 } else if (preg_match("/bot\b/i", $info["name"], $m)) {
-	?><span style="color: red;">您的用戶名包含了字眼"bot"，可能誤導他人您的帳戶是機器人帳戶</span><br><?php
+	?><span style="color: red;">您的用戶名包含了字眼"bot"，可能誤導他人您的帳戶是機器人帳戶，除非您要建立一個機器人帳戶</span><br><?php
 } else {
 	?>自動檢查未發現任何問題，您可以閱讀<a href="https://zh.wikipedia.org/wiki/Wikipedia:%E7%94%A8%E6%88%B7%E5%90%8D#.E9.81.B8.E6.93.87.E4.B8.80.E5.80.8B.E7.94.A8.E6.88.B6.E5.90.8D" target="_blank">用戶名方針</a>了解哪些用戶名不被允許。<?php
 }
