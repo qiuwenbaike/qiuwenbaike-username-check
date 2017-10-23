@@ -25,8 +25,8 @@ $user = trim($user);
 			<td>顯示語言:</td>
 			<td>
 				<select name="uselang">
-					<option value="zh-hant" <?=($type=="zh-hant"?"selected":"")?>>繁體</option>
-					<option value="zh-hans" <?=($type=="zh-hans"?"selected":"")?>>简体</option>
+					<option value="zh-hant" <?=($uselang=="zh-hant"?"selected":"")?>>繁體</option>
+					<option value="zh-hans" <?=($uselang=="zh-hans"?"selected":"")?>>简体</option>
 				</select>
 			</td>
 		</tr> -->
