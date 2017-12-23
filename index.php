@@ -61,9 +61,7 @@ if (preg_match("/^[a-z]/", $user)) {
 	?><span style="color: red;">提醒：用戶名第一個字會被自動替換成大寫</span>，目前自動變更為"<?=$info["name"]?>"<br><?php
 }
 if (isset($info["userid"])) {
-	?><span style="color: red;">您的用戶名不可建立，原因為：已被他人使用<?php
-		
-	?></span><br><?php
+	?><span style="color: red;">您的用戶名不可建立，原因為：已被他人使用，<a href="https://zh.wikipedia.org/wiki/Special:CentralAuth/<?=$info["name"]?>" target="_blank">全域帳號資訊</a></span><br><?php
 }
 if (isset($info["invalid"])) {
 	?><span style="color: red;">您的用戶名不可建立，原因為：包含不允許的字元<?php
@@ -99,7 +97,7 @@ if (isset($info["cancreateerror"])) {
 	?></span><br><?php
 }
 if (isset($info["cancreate"])) {
-	?><span style="color: green;">此用戶名可以建立</span><br><?php
+	?><span style="color: green;">此用戶名可以建立，<a href="https://zh.wikipedia.org/wiki/Special:CreateAccount?wpName=<?=$info["name"]?>" target="_blank">立即建立</a>（<a href="https://zh.wikipedia.org/wiki/Special:CreateAccount?wpName=<?=$info["name"]?>&wpCreateaccountMail=1" target="_blank">隨機密碼</a>）</span><br><?php
 }
 ?>
 <br>
