@@ -57,8 +57,8 @@ echo "檢查用戶名 \"".$info["name"]."\" 的結果如下";
 <br>
 技術性檢查：<br>
 <?php
-if (preg_match("/^[a-z]/", $user)) {
-	?><span style="color: red;">提醒：用戶名第一個字會被自動替換成大寫</span>，目前自動變更為"<?=$info["name"]?>"<br><?php
+if ($user !== $info["name"]) {
+	?><span style="color: red;">因為技術原因，您的用戶名會自動變更為「</span><?=$info["name"]?><span style="color: red;">」，若您不能接受，請另擇一個。</span><br><?php
 }
 if (isset($info["userid"])) {
 	?><span style="color: red;">您的用戶名不可建立，原因為：已被他人使用，<a href="https://zh.wikipedia.org/wiki/Special:CentralAuth/<?=$info["name"]?>" target="_blank">全域帳號資訊</a></span><br><?php
