@@ -73,7 +73,7 @@ if (isset($info["cancreateerror"])) {
 	?><span style="color: red;">您的用戶名不可建立，原因為：<?php
 		$message = $cancreateerror["message"];
 		if ($message == "userexists") {
-			$message = "已被他人使用";
+			$message = '已被他人使用，<a href="https://zh.wikipedia.org/wiki/Special:CentralAuth/'.$info["name"].'" target="_blank">全域帳號資訊</a>';
 		}
 		if ($message == "noname") {
 			$message = "不可使用電子郵件地址作為用戶名";
