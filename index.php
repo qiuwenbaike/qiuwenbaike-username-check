@@ -91,7 +91,11 @@ if (isset($info["cancreateerror"])) {
 			}
 		}
 		echo $message;
-	?></span></p><?php
+	?></span><?php
+	if (isset($_GET["admin"])) {
+		?><a href="https://zh.wikipedia.org/wiki/Special:CreateAccount?wpName=<?=$info["name"]?>" target="_blank">仍要建立</a>（<a href="https://zh.wikipedia.org/wiki/Special:CreateAccount?wpName=<?=$info["name"]?>&wpCreateaccountMail=1" target="_blank">隨機密碼</a>）<?php
+	}
+	?></p><?php
 }
 if (isset($info["cancreate"])) {
 	?>
