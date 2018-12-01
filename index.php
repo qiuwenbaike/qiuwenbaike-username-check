@@ -103,7 +103,7 @@ if (isset($info["cancreate"])) {
 		<span style="color: green;">此用戶名可以建立，<a href="https://zh.wikipedia.org/wiki/Special:CreateAccount?wpName=<?=$info["name"]?>" target="_blank">立即建立</a>（<a href="https://zh.wikipedia.org/wiki/Special:CreateAccount?wpName=<?=$info["name"]?>&wpCreateaccountMail=1" target="_blank">隨機密碼</a>）</span>
 	</p>
 	<p>
-		如果您向管理員請求註冊帳戶而被導引來這裡，請直接告知那位管理員您測試通過的用戶名。
+		如果您向管理員請求註冊帳戶而被導引來這裡，請直接告知那位管理員您測試通過的用戶名即可，不要複製貼上本頁內容。
 	</p>
 	<?php
 }
