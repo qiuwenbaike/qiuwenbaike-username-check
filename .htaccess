@@ -7,8 +7,8 @@ RewriteCond %{ENV:REDIRECT_STATUS} ^$
 RewriteCond %{QUERY_STRING} ^user=(.+)$
 RewriteRule ^(index.php)?$ %{ENV:BASE}/%1? [NE,R=302,L]
 
-RewriteCond %{QUERY_STRING} ^uselang=(.+)$
-RewriteRule ^(.*)$ %{ENV:BASE}/index.php?user=$1&uselang=%1 [PT,L]
+RewriteCond %{QUERY_STRING} ^userlang=(.+)$
+RewriteRule ^(.*)$ %{ENV:BASE}/index.php?user=$1&userlang=%1 [PT,L]
 
 RewriteCond %{QUERY_STRING} ^$
 RewriteRule ^(.*)$ %{ENV:BASE}/index.php?user=$1 [PT,L]

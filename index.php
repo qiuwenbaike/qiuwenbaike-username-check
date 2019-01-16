@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <?php
 require_once(__DIR__.'/vendor/autoload.php');
-$uselang = (isset($_GET["uselang"]) ? $_GET["uselang"] : "");
-$int = new Intuition(['domain' => 'wikipedia-username-check', 'lang' => $uselang]);
+$int = new Intuition('wikipedia-username-check');
 $int->registerDomain('wikipedia-username-check', __DIR__.'/i18n');
 ?>
 <html>
@@ -29,12 +28,12 @@ $user = trim($user);
 		<tr>
 			<td><?=$int->msg('language')?></td>
 			<td>
-				<select name="uselang">
+				<select name="userlang">
 					<?php
 					$langs = ['en', 'zh-hans', 'zh-hant'];
 					foreach ($langs as $lang) {
 						?>
-						<option value="<?=$lang?>" <?=($uselang==$lang?"selected":"")?>><?=$int->getLangName($lang)?></option>
+						<option value="<?=$lang?>" <?=($lang==$int->getLang()?"selected":"")?>><?=$int->getLangName($lang)?></option>
 						<?php
 					}
 					?>
@@ -52,7 +51,7 @@ if ($user === "") {
 	exit();
 }
 
-$url = 'https://login.wikimedia.org/w/api.php?action=query&format=json&list=users&usprop=cancreate&uselang='.$uselang.'&ususers='.urlencode($user);
+$url = 'https://login.wikimedia.org/w/api.php?action=query&format=json&list=users&usprop=cancreate&uselang='.$int->getLang().'&ususers='.urlencode($user);
 $res = file_get_contents($url);
 if ($res === false) {
 	exit("檢查時發生錯誤，請再試一次");
