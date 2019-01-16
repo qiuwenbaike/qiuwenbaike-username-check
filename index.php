@@ -48,7 +48,7 @@ if ($res === false) {
 }
 $info = json_decode($res, true);
 $info = $info["query"]["users"][0];
-echo "<h3>檢查用戶名 \"".$info["name"]."\" 的結果如下</h3>";
+echo "<h3>檢查用戶名「".$info["name"]."」的結果如下</h3>";
 ?>
 <!--
 <?php var_dump($info); ?>
