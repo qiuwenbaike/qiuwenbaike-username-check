@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Xiplus"
+		]
+	},
+	"title": "Chinese Wikipedia Username Check",
+	"current-time": "Current time: $1",
+	"username": "Username:",
+	"language": "Language:",
+	"check": "Check",
+	"check-failed": "An error occurred during the check. Please try again.",
+	"result": "The result of checking the username \"$1\" is as follows",
+	"technical-check": "Technical checks:",
+	"correction": "For technical reasons, your username will be automatically changed to \"$1\". If you can't accept it, please choose another one.",
+	"cannot-create": "Your username cannot be created, because:",
+	"userexists": "Username is already taken ($1).",
+	"central-auth": "Global account information",
+	"invalid-username": "Contains unallowed characters.",
+	"email-username": "You cannot use an email address as your username.",
+	"titleblacklist": "Username is forbidden by blacklist.",
+	"only-number": "Username only contains numbers.",
+	"mixedscripts": "Contains incompatible mixed text, such as mixing Chinese and English.",
+	"continue-create": "$1 ($2).",
+	"continue-create-text": "Continue to create account",
+	"random-password": "Random password",
+	"can-create": "This username can be created. $1 ($2).",
+	"create-now": "Create now",
+	"account-request": "If you asked administrator to register an account and the administrator directed you to here, please tell the administrator of the username you passed the check. Do not copy and paste this page.",
+	"policy-check": "Chinese Wikipedia $1 Check:",
+	"policy-text": "Username Policy",
+	"contain-admin": "Your username contains the word \"$1\" and give the impression that the account has permissions.",
+	"end-with-bot": "Your username ends with \"bot\", which is reserved for robot accounts. Unless you are creating a robot account.",
+	"contain-bot": "Your username contains the word \"bot\" and could be easily misunderstood to refer to a robot. Unless you are creating a robot account.",
+	"no-problem": "The automatic check found no problems.",
+	"policy-detail": "Chinese Wikipedia does not allow some usernames:",
+	"policy-spam-name": "Company/group name ($1).",
+	"policy-spam-exception": "View exception",
+	"policy-share-name": "Usernames that imply that your account is for shared use ($1).",
+	"policy-share-account": "Sharing accounts is also not allowed",
+	"policy-bad-name": "Misleading, insulting, offensive, destructive username.",
+	"policy-readmore": "You can read the $1 for detailed rules."
+}
