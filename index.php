@@ -37,7 +37,7 @@ $user = trim($user);
 							$int->getLangFallbacks($int->getLang())
 						),
 						$langs
-					))[0] ?? 'en';
+					))[0];
 					foreach ($langs as $lang) {
 						?>
 						<option value="<?=$lang?>" <?=($lang==$fallback?"selected":"")?>><?=$int->getLangName($lang)?></option>
