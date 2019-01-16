@@ -13,7 +13,7 @@ $user = (isset($_GET["user"]) ? $_GET["user"] : "");
 $uselang = (isset($_GET["uselang"]) ? $_GET["uselang"] : "zh-hant");
 $user = trim($user);
 ?>
-<form>
+<form action="./">
 	<table>
 		<tr>
 			<td>用戶名：</td>
