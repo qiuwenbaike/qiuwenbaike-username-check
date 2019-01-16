@@ -60,7 +60,7 @@ if ($user !== $info["name"]) {
 	?><p><span style="color: red;">因為技術原因，您的用戶名會自動變更為「</span><?=$info["name"]?><span style="color: red;">」，若您不能接受，請另擇一個。</span></p><?php
 }
 if (isset($info["userid"])) {
-	?><p><span style="color: red;">您的用戶名不可建立，原因為：已被他人使用，<a href="https://zh.wikipedia.org/wiki/Special:CentralAuth/<?=$info["name"]?>" target="_blank">全域帳號資訊</a></span></p><?php
+	?><p><span style="color: red;">您的用戶名不可建立，原因為：已被他人使用，<a href="https://zh.wikipedia.org/wiki/Special:CentralAuth?target=<?=urlencode($info["name"])?>" target="_blank">全域帳號資訊</a></span></p><?php
 }
 if (isset($info["invalid"])) {
 	?><p><span style="color: red;">您的用戶名不可建立，原因為：包含不允許的字元</span></p><?php
@@ -70,7 +70,7 @@ if (isset($info["cancreateerror"])) {
 	?><p><span style="color: red;">您的用戶名不可建立，原因為：<?php
 		$message = $cancreateerror["message"];
 		if ($message == "userexists") {
-			$message = '已被他人使用，<a href="https://zh.wikipedia.org/wiki/Special:CentralAuth/'.$info["name"].'" target="_blank">全域帳號資訊</a>';
+			$message = '已被他人使用，<a href="https://zh.wikipedia.org/wiki/Special:CentralAuth?target='.urlencode($info["name"]).'" target="_blank">全域帳號資訊</a>';
 		}
 		if ($message == "noname") {
 			$message = "不可使用電子郵件地址作為用戶名";
