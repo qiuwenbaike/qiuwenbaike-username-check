@@ -31,9 +31,16 @@ $user = trim($user);
 				<select name="userlang">
 					<?php
 					$langs = ['en', 'zh-hans', 'zh-hant'];
+					$fallback = array_values(array_intersect(
+						array_merge(
+							[$int->getLang()],
+							$int->getLangFallbacks($int->getLang())
+						),
+						$langs
+					))[0] ?? 'en';
 					foreach ($langs as $lang) {
 						?>
-						<option value="<?=$lang?>" <?=($lang==$int->getLang()?"selected":"")?>><?=$int->getLangName($lang)?></option>
+						<option value="<?=$lang?>" <?=($lang==$fallback?"selected":"")?>><?=$int->getLangName($lang)?></option>
 						<?php
 					}
 					?>
