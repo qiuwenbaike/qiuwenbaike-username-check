@@ -22,7 +22,7 @@ $user = trim($user);
 		<tr>
 			<td><?=$int->msg('username')?></td>
 			<td>
-				<input type="text" name="user" value="<?=$user?>" required autofocus>
+				<input type="text" name="user" value="<?=htmlspecialchars($user)?>" required autofocus>
 			</td>
 		</tr>
 		<tr>
