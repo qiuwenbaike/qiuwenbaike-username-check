@@ -79,7 +79,8 @@ if ($user !== $info["name"]) {
 if (isset($info["userid"])) {
 	?><p><span style="color: red;"><?=
 		$int->msg('cannot-create')." ".$int->msg('userexists', ['variables' => [
-		'<a href="https://zh.wikipedia.org/wiki/Special:CentralAuth?target='.urlencode($info["name"]).'" target="_blank">'.$int->msg('central-auth').'</a>'
+		'<a href="https://zh.wikipedia.org/wiki/Special:CentralAuth?target='.urlencode($info["name"]).'" target="_blank">'.$int->msg('central-auth').'</a>',
+		'<a href="https://zh.wikipedia.org/wiki/Special:UserRights?user='.urlencode($info["name"]).'" target="_blank">'.$int->msg('grant-rights').'</a>'
 		]]);
 	?></span></p><?php
 }
