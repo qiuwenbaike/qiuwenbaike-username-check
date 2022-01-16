@@ -93,7 +93,8 @@ if (isset($info["cancreateerror"])) {
 		$message = $cancreateerror["message"];
 		if ($message == "userexists") {
 			$message = $int->msg('userexists', ['variables' => [
-				'<a href="https://zh.wikipedia.org/wiki/Special:CentralAuth?target='.urlencode($info["name"]).'" target="_blank">'.$int->msg('central-auth').'</a>'
+				'<a href="https://zh.wikipedia.org/wiki/Special:CentralAuth?target='.urlencode($info["name"]).'" target="_blank">'.$int->msg('central-auth').'</a>',
+				'<a href="https://zh.wikipedia.org/wiki/Special:UserRights?user='.urlencode($info["name"]).'" target="_blank">'.$int->msg('grant-rights').'</a>'
 			]]);
 		}
 		if ($message == "noname") {
@@ -115,7 +116,7 @@ if (isset($info["cancreateerror"])) {
 			}
 		}
 		if (isset($cancreateerror["params"])) {
-			for ($i=1; $i <= count($cancreateerror["params"]); $i++) { 
+			for ($i=1; $i <= count($cancreateerror["params"]); $i++) {
 				$message = str_replace("$".$i, $cancreateerror["params"][$i-1], $message);
 			}
 		}
