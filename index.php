@@ -164,7 +164,7 @@ if (preg_match("/(管理員|行政員|監管員|使用者核查員|使用者查�
 	echo $int->msg('no-problem');
 }
 ?>
-<a href="https://www.google.com/search?q=<?= urlencode($info["name"]) ?>"><?= $int->msg('google-search') ?></a>
+<a href="https://www.google.com/search?q=<?= urlencode($info["name"]) ?>" target="_blank"><?= $int->msg('google-search') ?></a>
 </p>
 <p>
 	<?=$int->msg('policy-detail')?>
