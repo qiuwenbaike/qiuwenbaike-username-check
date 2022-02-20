@@ -34,6 +34,7 @@
 	"end-with-bot": "Your username ends with \"bot\", which is reserved for robot accounts. Unless you are creating a robot account.",
 	"contain-bot": "Your username contains the word \"bot\" and could be easily misunderstood to refer to a robot. Unless you are creating a robot account.",
 	"no-problem": "The automatic check found no problems.",
+	"google-search": "Google Search",
 	"policy-detail": "Chinese Wikipedia does not allow some usernames:",
 	"policy-spam-name": "Company/group name ($1).",
 	"policy-spam-exception": "View exception",
