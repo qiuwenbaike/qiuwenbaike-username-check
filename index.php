@@ -134,15 +134,15 @@ if (isset($info["cancreateerror"])) {
 if (isset($info["cancreate"])) {
 	?>
 	<p>
+		<?=$int->msg('account-request')?>
+	</p>
+	<p>
 		<span style="color: green;"><?php
 		echo $int->msg('can-create', ['variables' => [
 			'<a href="https://zh.wikipedia.org/wiki/Special:CreateAccount?wpName='.$info["name"].'" target="_blank">'.$int->msg('create-now').'</a>',
 			'<a href="https://zh.wikipedia.org/wiki/Special:CreateAccount?wpName='.$info["name"].'&wpCreateaccountMail=1" target="_blank">'.$int->msg('random-password').'</a>'
 		]]);
 		?></span>
-	</p>
-	<p>
-		<?=$int->msg('account-request')?>
 	</p>
 	<?php
 }

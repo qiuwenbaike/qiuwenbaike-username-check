@@ -27,7 +27,7 @@
 	"random-password": "Random password",
 	"can-create": "This username can be created. $1 ($2).",
 	"create-now": "Create now",
-	"account-request": "If you asked administrator to register an account and the administrator directed you to here, please tell the administrator of the username you passed the check. Do not copy and paste this page.",
+	"account-request": "If you asked administrator to register an account and the administrator directed you to here, please tell the administrator of the username you passed the check. Do not copy and paste this page or send screenshots.",
 	"policy-check": "Chinese Wikipedia $1 Check:",
 	"policy-text": "Username Policy",
 	"contain-admin": "Your username contains the word \"$1\" and give the impression that the account has permissions.",
