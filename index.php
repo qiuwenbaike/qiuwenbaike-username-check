@@ -170,7 +170,7 @@ if (preg_match("/(管理員|行政員|監管員|使用者核查員|使用者查�
 	<?=$int->msg('policy-detail')?>
 	<ul>
 		<li><?=$int->msg('policy-spam-name', ['variables' => [
-			'<a href="https://zh.wikipedia.org/wiki/Wikipedia:用户名#公司/團體名稱" target="_blank">'.$int->msg('policy-spam-exception').'</a>'
+			'<a href="https://zh.wikipedia.org/wiki/Wikipedia:用户名#公司或團體名稱" target="_blank">'.$int->msg('policy-spam-exception').'</a>'
 			]])?></li>
 		<li><?=$int->msg('policy-share-name', ['variables' => [
 			'<a href="https://zh.wikipedia.org/wiki/Wikipedia:用户名#分享帳戶" target="_blank">'.$int->msg('policy-share-account').'</a>'
