@@ -22,6 +22,7 @@
 	"titleblacklist": "Username is forbidden by blacklist.",
 	"only-number": "Username only contains numbers.",
 	"mixedscripts": "Contains incompatible mixed text, such as mixing Chinese and English.",
+	"conflict-username": "The username \"$1\" is too similar to the following usernames:\n$3\nPlease choose another username.",
 	"continue-create": "$1 ($2).",
 	"continue-create-text": "Continue to create account",
 	"random-password": "Random password",

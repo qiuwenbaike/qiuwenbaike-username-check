@@ -89,7 +89,7 @@ if (isset($info["invalid"])) {
 }
 if (isset($info["cancreateerror"])) {
 	$cancreateerror = $info["cancreateerror"][0];
-	?><p><span style="color: red;"><?php
+	?><p><div style="color: red;"><?php
 		echo $int->msg('cannot-create')." ";
 		$message = $cancreateerror["message"];
 		if ($message == "userexists") {
@@ -116,13 +116,20 @@ if (isset($info["cancreateerror"])) {
 				$message = $int->msg('mixedscripts');
 			}
 		}
+		if ($message == "antispoof-conflict") {
+			$message = $int->msg('conflict-username');
+		}
 		if (isset($cancreateerror["params"])) {
 			for ($i=1; $i <= count($cancreateerror["params"]); $i++) {
-				$message = str_replace("$".$i, $cancreateerror["params"][$i-1], $message);
+				$param = $cancreateerror["params"][$i-1];
+				if (is_array($param) && isset($param['num'])) {
+					$param = $param['num'];
+				}
+				$message = str_replace("$".$i, $param, $message);
 			}
 		}
 		echo $message;
-	?></span> <?php
+	?></div> <?php
 	if (isset($_GET["admin"])) {
 		echo $int->msg('continue-create', ['variables' => [
 			'<a href="https://zh.wikipedia.org/wiki/Special:CreateAccount?wpName='.$info["name"].'" target="_blank">'.$int->msg('continue-create-text').'</a>',

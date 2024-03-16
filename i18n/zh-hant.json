@@ -22,6 +22,7 @@
 	"titleblacklist": "使用者名稱被黑名單禁止。",
 	"only-number": "使用者名稱僅包含數字。",
 	"mixedscripts": "包含不兼容的混合文字，例如不能中文和英文混用。",
+	"conflict-username": "使用者名稱「$1」與以下 $2 個使用者過於相似：\n$3\n請選擇其他使用者名稱。",
 	"continue-create": "$1（$2）",
 	"continue-create-text": "仍要建立",
 	"random-password": "隨機密碼",
