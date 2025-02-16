@@ -69,7 +69,7 @@ if ($user !== $info["name"] || isset($info["userid"])) {
 		$pageContent = $pageContent . <<<EOF
 	<p>
 		<span style="color: red;">
-			因为技术原因，您的用户名会自动变更为<span style="color: black;">“$correctedName ”</span>。
+			因为技术原因，您的用户名会自动变更为<span style="color: black;">“<span>$correctedName</span>”</span>。
 		</span>
 	</p>
 	<p>
@@ -192,7 +192,7 @@ EOF;
 		$pageContent = $pageContent . <<<EOF
 	<li>
 		<span style="color: red;">
-			您的用户名包含了特定字词“$matchSysop ”，可能误导他人您的账户拥有特定权限。
+			您的用户名包含了特定字词“<span>$matchSysop</span>”，可能误导他人您的账户拥有特定权限。
 		</span>
 	</li>
 	EOF;
@@ -203,7 +203,7 @@ EOF;
 		$pageContent = $pageContent . <<<EOF
 	<li>
 		<span style="color: red;">
-			您的用户名包含了特定字词“$matchBot ”，可能误导他人您的账户是机器人账户，除非您要创建一个机器人账户。
+			您的用户名包含了特定字词“<span>$matchBot</span>”，可能误导他人您的账户是机器人账户，除非您要创建一个机器人账户。
 		</span>
 	</li>
 	EOF;
