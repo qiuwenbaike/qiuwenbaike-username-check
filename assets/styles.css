@@ -57,16 +57,30 @@ main {
 
 h1,
 h2,
+h3,
 header,
 footer {
 	font-family: 'Source Serif 4', 'DejaVu Serif', 'Liberation Serif', 'Linux Libertine', 'Georgia', 'Calibri', 'Times New Roman', 'Source Han Serif SC', 'Noto Serif CJK SC', 'STSong', 'SimSun', serif;
 }
 
-h1 {
+h1,
+h2,
+h3 {
 	line-height: 1.5;
-	font-size: 1.625em;
 	margin-top: 1em;
 	margin-bottom: 0.5em;
+}
+
+h1 {
+	font-size: 1.625em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+h3 {
+	font-size: 1.25em;
 }
 
 p {
@@ -80,6 +94,10 @@ a {
 
 a:hover {
 	text-decoration: underline;
+}
+
+ul {
+	margin-left: 3em;
 }
 
 em,
