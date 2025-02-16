@@ -53,40 +53,45 @@ $userName = htmlentities($info["name"]);
 $pageContent = $pageContent . <<<EOF
 
 <h2>检查结果</h2>
-
-<h3>技术性检查</h3>
 EOF;
 
-if ($user !== $info["name"]) {
-	$correctedName = $info["name"];
+if ($user !== $info["name"] || isset($info["userid"])) {
 	$pageContent = $pageContent . <<<EOF
-<p>
-	<span style="color: red;">
-		因为技术原因，您的用户名会自动变更为<span style="color: black;">“$correctedName ”</span>。
-	</span>
-</p>
-<p>
-	若您不能接受，请另择一个。
-</p>
-EOF;
-}
 
-if (isset($info["userid"])) {
-	$existName = $info["name"];
-	$encodedExistName = urlencode($existName);
-	$pageContent = $pageContent . <<<EOF
-<p>
-	<span style="color: red;">
-		您的用户名不可建立。
-	</span>
-</p>
-<p>原因：已被他人使用。</p>
-<p>参见：</p>
-<ul>
-	<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CentralAuth?target=$encodedExistName" target="_blank">全域账号信息</a></li>
-	<li><a href="https://www.qiuwenbaike.cn/wiki/Special:UserRights?user=$encodedExistName" target="_blank">权限授予信息</a></li>
-</ul>
-EOF;
+		<h3>技术性检查</h3>
+	EOF;
+
+	if ($user !== $info["name"]) {
+		$correctedName = $info["name"];
+		$pageContent = $pageContent . <<<EOF
+	<p>
+		<span style="color: red;">
+			因为技术原因，您的用户名会自动变更为<span style="color: black;">“$correctedName ”</span>。
+		</span>
+	</p>
+	<p>
+		若您不能接受，请另择一个。
+	</p>
+	EOF;
+	}
+
+	if (isset($info["userid"])) {
+		$existName = $info["name"];
+		$encodedExistName = urlencode($existName);
+		$pageContent = $pageContent . <<<EOF
+	<p>
+		<span style="color: red;">
+			您的用户名不可建立。
+		</span>
+	</p>
+	<p>原因：已被他人使用。</p>
+	<p>参见：</p>
+	<ul>
+		<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CentralAuth?target=$encodedExistName" target="_blank">全域账号信息</a></li>
+		<li><a href="https://www.qiuwenbaike.cn/wiki/Special:UserRights?user=$encodedExistName" target="_blank">权限授予信息</a></li>
+	</ul>
+	EOF;
+	}
 }
 
 if (isset($info["invalid"])) {
