@@ -15,13 +15,42 @@ function pageTemplate($content)
 		</head>
 		<body>
 			<header>
-				<a href="https://www.qiuwenbaike.cn" title="求闻百科">
+				<a href="https://www.qiuwenbaike.cn" title="求闻百科" target="_blank">
 					<img src="https://assets.zhongwen.wiki/commons/wordmark/qiuwenbaike-with-favicon-and-slogan.png" width="238" height="35" alt="求闻百科，共笔求闻" />
 				</a>
 			</header>
 			<main>
 				<h1>求闻百科用户名检查</h1>
 				$content
+				<h2>参见</h2>
+				<h3>求闻百科方针</h3>
+				<ul>
+					<li>
+						<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:用户名方针" title="用户名方针" target="_blank">用户名方针</a>
+					</li>
+					<li>
+						<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:一人一号" title="一人一号" target="_blank">一人一号</a>
+					</li>
+				</ul>
+				<h3>政府规章与规范性文件</h3>
+				<ul>
+					<li>
+						《<a href="https://www.qiuwenbaike.cn/wiki/Addendum:互联网用户账号信息管理规定" title="互联网用户账号信息管理规定" target="_blank">互联网用户账号信息管理规定</a>》
+						<em>（2022年6月27日国家互联网信息办公室令第10号公布）</em>
+					</li>
+					<li>
+						《<a href="https://www.qiuwenbaike.cn/wiki/Addendum:互联网用户账号信息管理规定" title="互联网用户账号信息管理规定" target="_blank">互联网用户账号信息管理规定</a>》
+						<em>（2015年2月4日国家互联网信息办公室发布）</em>
+					</li>
+				</ul>
+				<h2>免责声明</h2>
+				<blockquote>
+					<p>作为自动化程序，本系统以一套既有的程序检查账户创建的技术可行性。囿于技术限制，本系统无法检测出所有违规用户名。即使某一用户名通过本系统检测，也不代表其一定符合适用法律的规定，更不代表其一定符合用户协议、社区公约、社区方针的条款。</p>
+					<p>对于本系统输出的结果，本网站运营者及该自动化程序的作者既不提供任何保证或担保，也不承担任何法律责任。使用本系统给出的判断结果，风险自担。</p>
+					<p>
+						<em>（另请参见：《<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:免责声明" title="求闻百科免责声明" target="_blank">求闻百科免责声明</a>》）</em>
+					</p>
+				</blockquote>
 			</main>
 			<footer>
 				<div class="footer-copyright">
