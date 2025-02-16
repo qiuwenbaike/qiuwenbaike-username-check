@@ -48,7 +48,6 @@ if ($res === false) {
 
 $info = json_decode($res, true);
 $info = $info["query"]["users"][0];
-$dump = var_dump($info);
 $userName = htmlentities($info["name"]);
 
 $pageContent = $pageContent . <<<EOF
