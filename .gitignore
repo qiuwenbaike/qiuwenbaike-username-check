@@ -1,1 +1,10 @@
+# Composer files
 /vendor/
+/composer.bat
+/composer.phar
+# Config for internal test
+/config.php
+# Node.js Modules
+node_modules
+
+blacklist-pn.php
