@@ -11,7 +11,7 @@ function pageTemplate($title, $content)
 			<meta charset="utf-8" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 			<title>$title - 求闻百科手机号验证系统</title>
-			<link rel="stylesheet" href="https://rnrs.qiuwen.net.cn/assets/styles.css" />
+			<link rel="stylesheet" href="https://unc.qiuwen.net.cn/assets/styles.css" />
 		</head>
 		<body>
 			<header>
