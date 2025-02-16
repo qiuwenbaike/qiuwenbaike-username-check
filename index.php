@@ -150,7 +150,7 @@ EOF;
 		EOF;
 		} else if ($message == "noname") {
 			$pageContent = $pageContent . "<li>不可使用电子邮件地址作为用户名。</li>";
-		} else if ($message == "titleblacklist-forbidden-new-account") {
+		} else if (str_contains($message, "titleblacklist")) {
 			$pageContent = $pageContent . "<li>用户名包含列入黑名单的关键词。</li>";
 		} else if ($message == "antispoof-name-illegal") {
 			$url2 = 'https://login.qiuwenbaike.cn/api.php?action=query&format=json&list=users&usprop=cancreate&uselang=qqx&ususers=' . $encodedUser;
