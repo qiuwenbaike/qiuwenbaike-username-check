@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Xiplus"
+			"Xiplus",
+			"WaitSpring"
 		]
 	},
-	"title": "中文维基百科用户名检查",
+	"title": "求闻百科用户名检查",
 	"current-time": "现在时间：$1",
 	"username": "用户名：",
 	"language": "语言：",
@@ -29,14 +30,13 @@
 	"can-create": "此用户名可以建立，$1（$2）。",
 	"create-now": "立即创建",
 	"account-request": "如果您向管理员请求注册账户而被导引来这里，请直接告知那位管理员您测试通过的用户名即可，不要复制粘贴本页内容或截图。",
-	"policy-check": "中文维基百科$1检查：",
+	"policy-check": "求闻百科$1检查：",
 	"policy-text": "用户名方针",
 	"contain-admin": "您的用户名包含了字眼“$1”，可能误导他人您的账户拥有特定权限。",
 	"end-with-bot": "您的用户名以“bot”结尾，这被保留给机器人使用，除非您要创建一个机器人账户。",
 	"contain-bot": "您的用户名包含了字眼“bot”，可能误导他人您的账户是机器人账户，除非您要创建一个机器人账户。",
 	"no-problem": "自动检查未发现任何问题。",
-	"google-search": "Google搜索",
-	"policy-detail": "中文维基百科不允许一些用户名：",
+	"policy-detail": "求闻百科不允许一些用户名：",
 	"policy-spam-name": "公司/团体名称（$1）。",
 	"policy-spam-exception": "查看例外",
 	"policy-share-name": "暗示多人共有的用户名（$1）。",

@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Xiplus"
+			"Xiplus",
+			"WaitSpring"
 		]
 	},
-	"title": "Chinese Wikipedia Username Check",
+	"title": "Qiuwen Baike Username Check",
 	"current-time": "Current time: $1",
 	"username": "Username:",
 	"language": "Language:",
@@ -29,14 +30,13 @@
 	"can-create": "This username can be created. $1 ($2).",
 	"create-now": "Create now",
 	"account-request": "If you asked administrator to register an account and the administrator directed you to here, please tell the administrator of the username you passed the check. Do not copy and paste this page or send screenshots.",
-	"policy-check": "Chinese Wikipedia $1 Check:",
+	"policy-check": "Qiuwen Baike $1 Check:",
 	"policy-text": "Username Policy",
 	"contain-admin": "Your username contains the word \"$1\" and give the impression that the account has permissions.",
 	"end-with-bot": "Your username ends with \"bot\", which is reserved for robot accounts. Unless you are creating a robot account.",
 	"contain-bot": "Your username contains the word \"bot\" and could be easily misunderstood to refer to a robot. Unless you are creating a robot account.",
 	"no-problem": "The automatic check found no problems.",
-	"google-search": "Google Search",
-	"policy-detail": "Chinese Wikipedia does not allow some usernames:",
+	"policy-detail": "Qiuwen Baike does not allow some usernames:",
 	"policy-spam-name": "Company/group name ($1).",
 	"policy-spam-exception": "View exception",
 	"policy-share-name": "Usernames that imply that your account is for shared use ($1).",
