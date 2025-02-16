@@ -184,7 +184,7 @@ $pageContent = $pageContent . <<<EOF
 EOF;
 
 
-if (preg_match("/(管理員|行政員|監管員|裁決委員|使用者核查員|使用者查核員|監督員|裁决委员|管理员|行政员|监管员|用户核查员|用户查核员|监督员|admin|sysop|moderator|bureaucrat|steward|checkuser|oversight)/i", $info["name"], $m)) {
+if (preg_match("/(求闻|求聞|站长|站長|管理員|行政員|監管員|裁決委員|使用者核查員|使用者查核員|監督員|裁决委员|管理员|行政员|监管员|用户核查员|用户查核员|监督员|qiuwen|admin|sysop|moderator|bureaucrat|steward|checkuser|oversight)/i", $info["name"], $m)) {
 	$match = $m[1];
 	$pageContent = $pageContent . <<<EOF
 	<p>
