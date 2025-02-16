@@ -18,23 +18,16 @@ $date = date("Y/m/d H:i");
 
 $pageContent = <<<EOF
 <form action="./">
-	<table>
-		<tr>
-			<td>当前时间：</td>
-			<td>$date</td>
-		</tr>
-		<tr>
-			<td>用户名：</td>
-			<td>
-				<input type="text" name="user" value="$encodedUser" required autofocus>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<button type="submit">检查</button>
-			</td>
-		</tr>
-	</table>
+	<p>
+		<em>当前时间：$date</em>
+	</p>
+	<p>
+		<label for="user">用户名：</label>
+		<input type="text" name="user" id="user" title="user" value="$encodedUser" required autofocus />
+	</p>
+	<p>
+		<input type="button" name="submit" id="submit" type="submit" value="检查" />
+	</p>
 </form>
 EOF;
 
@@ -59,9 +52,10 @@ $dump = var_dump($info);
 $userName = htmlentities($info["name"]);
 
 $pageContent = $pageContent . <<<EOF
-<h3>检查用户名“$userName ”的结果如下</h3>
-<!-- $dump -->
-<h4>技术性检查</h4>
+
+<h2>检查结果</h2>
+
+<h3>技术性检查</h3>
 EOF;
 
 if ($user !== $info["name"]) {
@@ -122,8 +116,8 @@ EOF;
 		<p>原因：已被他人使用。</p>
 		<p>参见：</p>
 		<ul>
-			<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CentralAuth?target=$encodedExistName" target="_blank">全域账号信息</a></li>
-			<li><a href="https://www.qiuwenbaike.cn/wiki/Special:UserRights?user=$encodedExistName" target="_blank">权限授予信息</a></li>
+			<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CentralAuth?target=$encodedNameCannotCreated" target="_blank">全域账号信息</a></li>
+			<li><a href="https://www.qiuwenbaike.cn/wiki/Special:UserRights?user=$encodedNameCannotCreated" target="_blank">权限授予信息</a></li>
 		</ul>
 		EOF;
 	} else if ($message == "noname") {
@@ -146,8 +140,8 @@ EOF;
 		$pageContent = $pageContent . <<<EOF
 		<p>仍要创建？</p>
 		<ul>
-			<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$nameCannotCreated" target="_blank">继续创建</a></li>
-			<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$nameCannotCreated&wpCreateaccountMail=1"" target="_blank">继续创建（<small>随机密码</small>）</a></li>
+			<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCannotCreated" target="_blank">继续创建</a></li>
+			<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCannotCreated&wpCreateaccountMail=1"" target="_blank">继续创建（<small>随机密码</small>）</a></li>
 		</ul>
 		EOF;
 	}
@@ -157,7 +151,7 @@ if (isset($info["cancreate"])) {
 	$nameCanCreate = $info["name"];
 	$encodedNameCanCreate = urlencode($nameCanCreate);
 	$pageContent = $pageContent . <<<EOF
-<h4>账户请求</h4>
+<h3>账户请求</h3>
 <p>如果您向管理员请求注册账户而被导引来这里，请直接告知那位管理员您测试通过的用户名即可，不要复制粘贴本页内容或截图。</p>
 <p>
 	<span style="color: green;">
@@ -173,7 +167,7 @@ EOF;
 
 
 $pageContent = $pageContent . <<<EOF
-<h4>合规性检查</h4>
+<h3>合规性检查</h3>
 <p>以下检查旨在确认您的用户名是否存在违反<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:用户名" target="_blank">用户名方针</a>之处。</p>
 EOF;
 
@@ -207,7 +201,7 @@ if (preg_match("/(管理員|行政員|監管員|裁決委員|使用者核查員|
 }
 
 $pageContent = $pageContent . <<<EOF
-<h4>参见</h4>
+<h3>参见</h3>
 <ul>
 	<li>
 		<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:用户名方针" target="_blank">用户名方针</a>

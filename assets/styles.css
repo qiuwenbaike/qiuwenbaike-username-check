@@ -1,0 +1,161 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	color-scheme: light dark;
+	width: 100%;
+	background: #fff;
+	color: #000;
+	font-family: 'Helvetica Neue', 'Source Sans Pro', 'Source Sans 3', 'Arial', 'SFProDisplay-Regular', 'PingFang SC', 'Source Han Sans SC', 'Noto Sans CJK SC', sans-serif;
+	line-height: 1.75;
+}
+
+body,
+html {
+	min-height: 100vh;
+}
+
+body {
+	display: flex;
+	margin: 0 auto;
+	max-width: 83vw;
+	flex-flow: column wrap;
+	justify-content: space-between;
+}
+
+header {
+	margin: 10vh 0 2.5vh;
+	padding-bottom: 1em;
+	border-bottom: 5px solid #36c;
+}
+
+header a {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #000;
+}
+
+header a:hover {
+	text-decoration: none;
+}
+
+a img {
+	border: 0;
+	vertical-align: text-bottom;
+	margin: 0 5px;
+}
+
+main {
+	display: flex;
+	margin: 1em auto;
+	min-width: 70vw;
+	flex-flow: column wrap;
+	padding: 1em;
+}
+
+h1,
+h2,
+header,
+footer {
+	font-family: 'Source Serif 4', 'DejaVu Serif', 'Liberation Serif', 'Linux Libertine', 'Georgia', 'Calibri', 'Times New Roman', 'Source Han Serif SC', 'Noto Serif CJK SC', 'STSong', 'SimSun', serif;
+}
+
+h1 {
+	line-height: 1.5;
+	font-size: 1.625em;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+}
+
+p {
+	margin: 0.5em 0;
+}
+
+a {
+	color: #36c;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+em,
+footer {
+	color: #777;
+	font-style: normal;
+}
+
+footer {
+	margin: 2.5vh 0 10vh;
+	padding-top: 1em;
+	border-top: 1px solid #eaecf0;
+	font-size: 0.9em;
+}
+
+.footer-links a {
+	margin-right: 0.5em;
+	white-space: nowrap;
+}
+
+footer .footer-buttons {
+	display: flex;
+	margin-top: 0.5em;
+	gap: 0.5em;
+	flex-flow: row wrap;
+	justify-content: flex-end;
+}
+
+@media screen and ( prefers-color-scheme: dark ) {
+	html {
+		box-shadow: none;
+		filter: invert( 1 ) hue-rotate( 180deg );
+	}
+
+	canvas,
+	img,
+	svg {
+		filter: invert( 0 ) hue-rotate( 0deg );
+	}
+}
+
+label {
+	display: inline;
+	margin: 0.125em 0.75em 0.125em 0;
+	width: auto;
+}
+
+input[ type='text' ] {
+	padding: 6px 8px;
+	line-height: 1.25;
+}
+
+input[ type='submit' ] {
+	display: inline-block;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 5px 12px;
+	max-width: 28.75em;
+	min-width: 4em;
+	min-height: 32px;
+	vertical-align: middle;
+	text-align: center;
+	font-weight: bold;
+	font-size: 0.85em;
+	font-family: inherit;
+	line-height: 1.25em;
+	cursor: pointer;
+	background: #36c;
+	color: #fff;
+}
+
+input[ type='submit' ],
+input[ type='text' ] {
+	margin: 0.125em 0.25em;
+	border: 1px solid #a2a9b1;
+	border-radius: 4px;
+	background: #fff;
+	color: #000;
+}
