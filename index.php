@@ -1,250 +1,221 @@
 <?php
-require_once(__DIR__ . \DIRECTORY_SEPARATOR . '/vendor/autoload.php');
-$int = new Intuition('qiuwenbaike-username-check');
-$int->registerDomain('qiuwenbaike-username-check', __DIR__ . \DIRECTORY_SEPARATOR . '/i18n');
+// SPDX-License-Identifier: MIT
+
+// Loca Template
+require_once __DIR__ . \DIRECTORY_SEPARATOR . 'utils' . \DIRECTORY_SEPARATOR . 'template.php';
+
+// Set UA
 ini_set('user_agent', 'Qiuwen/1.1 (Username-Check/1.0)');
 define(CURLOPT_USERAGENT, "Qiuwen/1.1 (Username-Check/1.0)");
-?>
-<!DOCTYPE html>
-<html>
 
-<head>
-	<meta charset="utf-8">
-	<title>
-		<?php echo $int->msg('title') ?>
-	</title>
-</head>
+// Set variables
+$api = 'https://www.qiuwenbaike.cn/api.php';
+$user = (isset($_GET["user"]) ? $_GET["user"] : "");
+$user = trim($user);
+$encodedUser = htmlspecialchars($user);
+date_default_timezone_set('Asia/Shanghai');
+$date = date("Y/m/d H:i");
 
-<body>
-	<?php
-	date_default_timezone_set('UTC');
-	echo $int->msg('current-time', ['variables' => [date("Y/m/d H:i")]]) . "<br>";
-	$api = 'https://www.qiuwenbaike.cn/api.php';
-	$user = (isset($_GET["user"]) ? $_GET["user"] : "");
-	$user = trim($user);
-	?>
-	<form action="./">
-		<table>
-			<tr>
-				<td>
-					<?php echo $int->msg('username') ?>
-				</td>
-				<td>
-					<input type="text" name="user" value="<?php echo htmlspecialchars($user) ?>" required autofocus>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<?php echo $int->msg('language') ?>
-				</td>
-				<td>
-					<select name="userlang">
-						<?php
-						$langs = ['en', 'zh-hans', 'zh-hant'];
-						$fallback = array_values(array_intersect(
-							array_merge(
-								[$int->getLang()],
-								$int->getLangFallbacks($int->getLang())
-							),
-							$langs
-						))[0];
-						foreach ($langs as $lang) { ?>
-							<option value="<?php echo $lang ?>"
-								<?php echo ($lang == $fallback ? "selected" : "") ?>>
-								<?php echo $int->getLangName($lang) ?>
-							</option>
-						<?php
-						} ?>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>
-					<button type="submit">
-						<?php echo $int->msg('check') ?>
-					</button>
-				</td>
-			</tr>
-		</table>
-	</form>
-	<?php
-	if ($user === "") {
-		exit();
-	}
+$pageContent = <<<EOF
+<form action="./">
+	<table>
+		<tr>
+			<td>当前时间：</td>
+			<td>$date</td>
+		</tr>
+		<tr>
+			<td>用户名：</td>
+			<td>
+				<input type="text" name="user" value="$encodedUser" required autofocus>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<button type="submit">检查</button>
+			</td>
+		</tr>
+	</table>
+</form>
+EOF;
 
-	$url = 'https://login.qiuwenbaike.cn/api.php?action=query&format=json&list=users&usprop=cancreate&uselang=' . $int->getLang() . '&ususers=' . urlencode($user);
-	$res = file_get_contents($url);
-	if ($res === false) {
-		exit("檢查時發生錯誤，請再試一次");
-	}
-	$info = json_decode($res, true);
-	$info = $info["query"]["users"][0];
-	echo "<h3>" . $int->msg('result', ['variables' => [htmlentities($info["name"])]]) . "</h3>"; ?>
-	<!-- <?php var_dump($info); ?> -->
-	<h4>
-		<?php echo $int->msg('technical-check') ?>
-	</h4>
-	<div style="margin-left: 30px;">
-		<?php
-		if ($user !== $info["name"]) { ?>
-			<p>
-				<span style="color: red;">
-					<?php
-					echo $int->msg('correction', ['variables' => ['<span style="color: black;">' . $info["name"] . '</span>']])
-					?>
-				</span>
-			</p>
-		<?php
-		}
-		if (isset($info["userid"])) { ?>
-			<p>
-				<span style="color: red;">
-					<?php
-					echo $int->msg('cannot-create') . " " . $int->msg('userexists', ['variables' => [
-						'<a href="https://www.qiuwenbaike.cn/wiki/Special:CentralAuth?target=' . urlencode($info["name"]) . '" target="_blank">' . $int->msg('central-auth') . '</a>',
-						'<a href="https://www.qiuwenbaike.cn/wiki/Special:UserRights?user=' . urlencode($info["name"]) . '" target="_blank">' . $int->msg('grant-rights') . '</a>'
-					]]);
-					?>
-				</span>
-			</p>
-		<?php
-		}
-		if (isset($info["invalid"])) { ?>
-			<p>
-				<span style="color: red;">
-					<?php echo $int->msg('cannot-create') . " " . $int->msg('invalid-username') ?>
-				</span>
-			</p>
-		<?php
-		}
-		if (isset($info["cancreateerror"])) {
-			$cancreateerror = $info["cancreateerror"][0]; ?>
-			<p>
-			<div style="color: red;">
-				<?php echo $int->msg('cannot-create') . " ";
-				$message = $cancreateerror["message"];
-				if ($message == "userexists") {
-					$message = $int->msg('userexists', ['variables' => [
-						'<a href="https://www.qiuwenbaike.cn/wiki/Special:CentralAuth?target=' . urlencode($info["name"]) . '" target="_blank">' . $int->msg('central-auth') . '</a>',
-						'<a href="https://www.qiuwenbaike.cn/wiki/Special:UserRights?user=' . urlencode($info["name"]) . '" target="_blank">' . $int->msg('grant-rights') . '</a>'
-					]]);
-				}
-				if ($message == "noname") {
-					$message = $int->msg('email-username');
-				}
-				if ($message == "titleblacklist-forbidden-new-account") {
-					$message = $int->msg('titleblacklist');
-				}
-				if ($message == "antispoof-name-illegal") {
-					$url = 'https://login.qiuwenbaike.cn/api.php?action=query&format=json&list=users&usprop=cancreate&uselang=qqx&ususers=' . urlencode($user);
-					$res = file_get_contents($url);
-					$info2 = json_decode($res, true);
-					$info2 = $info2["query"]["users"][0];
-					$cancreateerror2 = $info2["cancreateerror"][0];
-					if ($cancreateerror2["params"][1] == "(antispoof-noletters)") {
-						$message = $int->msg('only-number');
-					} else if ($cancreateerror2["params"][1] == "(antispoof-mixedscripts)") {
-						$message = $int->msg('mixedscripts');
-					}
-				}
-				if ($message == "antispoof-conflict") {
-					$message = $int->msg('conflict-username');
-				}
-				if (isset($cancreateerror["params"])) {
-					for ($i = 1; $i <= count($cancreateerror["params"]); $i++) {
-						$param = $cancreateerror["params"][$i - 1];
-						if (is_array($param) && isset($param['num'])) {
-							$param = $param['num'];
-						}
-						$message = str_replace("$" . $i, $param, $message);
-					}
-				}
-				echo $message; ?>
-			</div>
-			<?php
-			if (isset($_GET["admin"])) {
-				echo $int->msg('continue-create', ['variables' => [
-					'<a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=' . $info["name"] . '" target="_blank">' . $int->msg('continue-create-text') . '</a>',
-					'<a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=' . $info["name"] . '&wpCreateaccountMail=1" target="_blank">' . $int->msg('random-password') . '</a>'
-				]]);
-			} ?>
-			</p>
-		<?php
-		}
-		if (isset($info["cancreate"])) { ?>
-			<p>
+if ($user === "") {
+	pageTemplate('求闻百科用户名检查', $pageContent);
+	exit();
+}
 
-				<?php echo $int->msg('account-request')
-				?>
+$url = 'https://login.qiuwenbaike.cn/api.php?action=query&format=json&list=users&usprop=cancreate&ususers=' . urlencode($user);
+$res = file_get_contents($url);
+if ($res === false) {
+	$pageContent = $pageContent . <<<EOF
+	<p>检查时发生错误，请再试一次</p>
+	EOF;
+	pageTemplate('求闻百科用户名检查', $pageContent);
+	exit();
+}
 
-			</p>
-			<p>
-				<span style="color: green;">
-					<?php echo $int->msg('can-create', ['variables' => [
-						'<a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=' . $info["name"] . '" target="_blank">' . $int->msg('create-now') . '</a>',
-						'<a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=' . $info["name"] . '&wpCreateaccountMail=1" target="_blank">' . $int->msg('random-password') . '</a>'
-					]]); ?>
-				</span>
-			</p>
-		<?php
-		} ?>
-	</div>
-	<h4>
-		<?php
-		echo $int->msg('policy-check', ['variables' => [
-			'<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:用户名" target="_blank">' . $int->msg('policy-text') . '</a>'
-		]])
-		?>
-	</h4>
-	<div style="margin-left: 30px;">
-		<p>
-			<?php
-			if (preg_match("/(管理員|行政員|監管員|裁決委員|使用者核查員|使用者查核員|監督員|裁决委员|管理员|行政员|监管员|用户核查员|用户查核员|监督员|admin|sysop|moderator|bureaucrat|steward|checkuser|oversight)/i", $info["name"], $m)) { ?>
-				<span style="color: red;">
-					<?php echo $int->msg('contain-admin', ['variables' => [$m[1]]]) ?>
-				</span>
-			<?php
-			} else if (preg_match("/bot$/i", $info["name"], $m)) { ?>
-				<span style="color: red;">
-					<?php echo $int->msg('end-with-bot') ?>
-				</span>
-			<?php
-			} else if (preg_match("/bot\b/i", $info["name"], $m)) { ?>
-				<span style="color: red;">
-					<?php echo $int->msg('contain-bot') ?>
-				</span>
-			<?php
-			} else {
-				echo $int->msg('no-problem');
-			} ?>
-		</p>
-		<p>
-			<?php echo $int->msg('policy-detail') ?>
+$info = json_decode($res, true);
+$info = $info["query"]["users"][0];
+$dump = var_dump($info);
+$userName = htmlentities($info["name"]);
+
+$pageContent = $pageContent . <<<EOF
+<h3>检查用户名“$userName ”的结果如下</h3>
+<!-- $dump -->
+<h4>技术性检查</h4>
+EOF;
+
+if ($user !== $info["name"]) {
+	$correctedName = $info["name"];
+	$pageContent = $pageContent . <<<EOF
+<p>
+	<span style="color: red;">
+		因为技术原因，您的用户名会自动变更为<span style="color: black;">“$correctedName ”</span>。若您不能接受，请另择一个。
+	</span>
+</p>
+EOF;
+}
+
+if (isset($info["userid"])) {
+	$existName = $info["name"];
+	$encodedExistName = urlencode($existName);
+	$pageContent = $pageContent . <<<EOF
+<p>
+	<span style="color: red;">
+		您的用户名不可建立，原因为：已被他人使用。<br />
+		参见：<a href="https://www.qiuwenbaike.cn/wiki/Special:CentralAuth?target=$encodedExistName" target="_blank">全域账号信息</a>、<a href="https://www.qiuwenbaike.cn/wiki/Special:UserRights?user=$encodedExistName" target="_blank">权限授予信息</a>。
+	</span>
+</p>
+EOF;
+}
+
+if (isset($info["invalid"])) {
+	$existName = $info["name"];
+	$encodedExistName = urlencode($existName);
+	$pageContent = $pageContent . <<<EOF
+<p>
+	<span style="color: red;">
+		您的用户名不可建立。
+	</span>
+</p>
+<p>
+	原因：包含不允许的字符。
+</p>
+EOF;
+}
+
+if (isset($info["cancreateerror"])) {
+	$nameCannotCreated = $info["name"];
+	$encodedNameCannotCreated = urlencode($nameCannotCreated);
+	$pageContent = $pageContent . <<<EOF
+<p>
+	<span style="color: red;">
+		您的用户名不可建立。
+	</span>
+<p>
+EOF;
+
+	$cancreateerror = $info["cancreateerror"][0];
+	$message = $cancreateerror["message"];
+
+	if ($message == "userexists") {
+		$pageContent = $pageContent . <<<EOF
+		<p>原因：已被他人使用。</p>
+		<p>参见：</p>
 		<ul>
-			<li>
-				<?php echo $int->msg('policy-spam-name', ['variables' => [
-					'<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:用户名方针#SPAMNAME" target="_blank">' . $int->msg('policy-spam-exception') . '</a>'
-				]]) ?>
-			</li>
-			<li>
-				<?php echo $int->msg('policy-share-name', ['variables' => [
-					'<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:一人一号#BADSOCK" target="_blank">' . $int->msg('policy-share-account') . '</a>'
-				]]) ?>
-			</li>
-			<li>
-				<?php echo $int->msg('policy-bad-name') ?>
-			</li>
+			<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CentralAuth?target=$encodedExistName" target="_blank">全域账号信息</a></li>
+			<li><a href="https://www.qiuwenbaike.cn/wiki/Special:UserRights?user=$encodedExistName" target="_blank">权限授予信息</a></li>
 		</ul>
-		</p>
+		EOF;
+	} else if ($message == "noname") {
+		$pageContent = $pageContent . "<p>原因：不可使用电子邮件地址作为用户名。</p>";
+	} else if ($message == "titleblacklist-forbidden-new-account") {
+		$pageContent = $pageContent . "<p>原因：用户名包含列入黑名单的关键词。</p>";
+	} else if ($message == "antispoof-conflict") {
+		$pageContent = $pageContent . "<p>原因：用户名与其他用户名过于相似，请选择其它用户名。</p>";
+	} else {
+		$pageContent = $pageContent . "<p>原因：用户名因其他技术原因无法创建，请选择其它用户名。</p>" . <<<EOF
 		<p>
-
-			<?php echo $int->msg('policy-readmore', ['variables' => [
-				'<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:用户名" target="_blank">' . $int->msg('policy-text') . '</a>'
-			]]) ?>
+		技术信息（请报告管理员）：
+		<code>$message</code>
 		</p>
-	</div>
+		EOF;
+	}
 
-</body>
 
-</html>
+	if (isset($_GET["admin"])) {
+		$pageContent = $pageContent . <<<EOF
+		<p>仍要创建？</p>
+		<ul>
+			<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$nameCannotCreated" target="_blank">继续创建</a></li>
+			<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$nameCannotCreated&wpCreateaccountMail=1"" target="_blank">继续创建（<small>随机密码</small>）</a></li>
+		</ul>
+		EOF;
+	}
+}
+
+if (isset($info["cancreate"])) {
+	$nameCanCreate = $info["name"];
+	$encodedNameCanCreate = urlencode($nameCanCreate);
+	$pageContent = $pageContent . <<<EOF
+<h4>账户请求</h4>
+<p>如果您向管理员请求注册账户而被导引来这里，请直接告知那位管理员您测试通过的用户名即可，不要复制粘贴本页内容或截图。</p>
+<p>
+	<span style="color: green;">
+		此用户名可以建立。
+	</span>
+</p>
+	<ul>
+		<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$nameCannotCreated" target="_blank">立即创建</a></li>
+		<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$nameCannotCreated&wpCreateaccountMail=1"" target="_blank">立即创建（<small>随机密码</small>）</a></li>
+	</ul>
+EOF;
+}
+
+
+$pageContent = $pageContent . <<<EOF
+<h4>合规性检查</h4>
+<p>以下检查旨在确认您的用户名是否存在违反<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:用户名" target="_blank">用户名方针</a>之处。</p>
+EOF;
+
+
+if (preg_match("/(管理員|行政員|監管員|裁決委員|使用者核查員|使用者查核員|監督員|裁决委员|管理员|行政员|监管员|用户核查员|用户查核员|监督员|admin|sysop|moderator|bureaucrat|steward|checkuser|oversight)/i", $info["name"], $m)) {
+	$match = $m[1];
+	$pageContent = $pageContent . <<<EOF
+	<p>
+		<span style="color: red;">
+			您的用户名包含了特定字词“$match ”，可能误导他人您的账户拥有特定权限。
+		</span>
+	</p>
+	EOF;
+} else if (preg_match("/(机器人|机械人|機器人|機械人|bot$)/i", $info["name"], $m)) {
+	$pageContent = $pageContent . <<<EOF
+	$match = $m[1];
+	<p>
+		<span style="color: red;">
+			您的用户名包含了特定字词“$match ”，可能误导他人您的账户是机器人账户，除非您要创建一个机器人账户。
+		</span>
+	</p>
+	EOF;
+} else {
+	$pageContent = $pageContent . <<<EOF
+	<p>
+		<span style="color: green;">
+			自动检查未发现任何问题。
+		</span>
+	</p>
+	EOF;
+}
+
+$pageContent = $pageContent . <<<EOF
+<h4>参见</h4>
+<ul>
+	<li>
+		<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:用户名方针" target="_blank">用户名方针</a>
+	</li>
+	<li>
+		<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:一人一号" target="_blank">一人一号</a>
+	</li>
+</ul>
+EOF;
+
+pageTemplate('求闻百科用户名检查', $pageContent);
