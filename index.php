@@ -63,8 +63,11 @@ if ($user !== $info["name"]) {
 	$pageContent = $pageContent . <<<EOF
 <p>
 	<span style="color: red;">
-		因为技术原因，您的用户名会自动变更为<span style="color: black;">“$correctedName ”</span>。若您不能接受，请另择一个。
+		因为技术原因，您的用户名会自动变更为<span style="color: black;">“$correctedName ”</span>。
 	</span>
+</p>
+<p>
+	若您不能接受，请另择一个。
 </p>
 EOF;
 }
@@ -75,10 +78,15 @@ if (isset($info["userid"])) {
 	$pageContent = $pageContent . <<<EOF
 <p>
 	<span style="color: red;">
-		您的用户名不可建立，原因为：已被他人使用。<br />
-		参见：<a href="https://www.qiuwenbaike.cn/wiki/Special:CentralAuth?target=$encodedExistName" target="_blank">全域账号信息</a>、<a href="https://www.qiuwenbaike.cn/wiki/Special:UserRights?user=$encodedExistName" target="_blank">权限授予信息</a>。
+		您的用户名不可建立。
 	</span>
 </p>
+<p>原因：已被他人使用。</p>
+<p>参见：</p>
+<ul>
+	<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CentralAuth?target=$encodedNameCannotCreated" target="_blank">全域账号信息</a></li>
+	<li><a href="https://www.qiuwenbaike.cn/wiki/Special:UserRights?user=$encodedNameCannotCreated" target="_blank">权限授予信息</a></li>
+</ul>
 EOF;
 }
 
