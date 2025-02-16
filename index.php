@@ -257,6 +257,12 @@ $pageContent = $pageContent . <<<EOF
 		<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:一人一号" target="_blank">一人一号</a>
 	</li>
 </ul>
+
+<h3>免责声明</h3>
+<blockquote>
+	<p>作为自动化程序，本系统以一套既有的程序检查账户创建的技术可行性。囿于技术限制，本系统无法检测出所有违规用户名。即使某一用户名通过本系统检测，也不代表其一定符合适用法律的规定，更不代表其一定符合用户协议、社区公约、社区方针的条款。</p>
+	<p>对于本系统输出的结果，本网站运营者及该自动化程序的作者既不提供任何保证或担保，也不承担任何法律责任。使用本系统给出的判断结果，风险自担。</p>
+</blockquote>
 EOF;
 
 pageTemplate($pageContent);

@@ -105,6 +105,12 @@ ul {
 	margin-left: 1.75em;
 }
 
+blockquote {
+	border-left: 0.25em solid #eaecf0;
+	padding: 0.5em 2em;
+	font-family: 'Source Serif 4', 'DejaVu Serif', 'Liberation Serif', 'Linux Libertine', 'Georgia', 'Calibri', 'Times New Roman', 'Source Han Serif SC', 'Noto Serif CJK SC', 'STSong', 'SimSun', serif;
+}
+
 em,
 footer {
 	color: #777;
