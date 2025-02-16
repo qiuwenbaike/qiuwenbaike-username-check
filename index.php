@@ -55,7 +55,6 @@ $info = $info["query"]["users"][0];
 $userName = htmlentities($info["name"]);
 
 $pageContent = $pageContent . <<<EOF
-
 <h2>检查结果</h2>
 EOF;
 
