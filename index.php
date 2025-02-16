@@ -160,7 +160,7 @@ EOF;
 			if ($cancreateerror2["params"][1] == "(antispoof-noletters)") {
 				$pageContent = $pageContent . "<li>不可使用纯数字用户名。</li>";
 			} else if ($cancreateerror2["params"][1] == "(antispoof-mixedscripts)") {
-				$pageContent = $pageContent . "<li>不可使用互不兼容的混合文字作为用户名（例如，不能中、英文混用）。</li>";
+				$pageContent = $pageContent . "<li>不可使用互不兼容的混合文字作为用户名（例：不得中、英文混用）。</li>";
 			}
 		} else if ($message == "antispoof-conflict") {
 			$pageContent = $pageContent . "<li>用户名与其他用户名过于相似，请选择其它用户名。</li>";
@@ -233,8 +233,7 @@ if (isset($info["cancreate"])) {
 	$nameCanCreate = $info["name"];
 	$encodedNameCanCreate = urlencode($nameCanCreate);
 	$pageContent = $pageContent . <<<EOF
-<h3>账户请求</h3>
-<p>如果您向管理员请求注册账户而被导引来这里，请直接告知那位管理员您测试通过的用户名即可，不要复制粘贴本页内容或截图。</p>
+<h2>账户请求</h2>
 <p>
 	<span style="color: green;">
 		此用户名可以建立。
@@ -244,11 +243,16 @@ if (isset($info["cancreate"])) {
 		<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCanCreate" target="_blank">立即创建</a></li>
 		<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCanCreate&wpCreateaccountMail=1"" target="_blank">立即创建<small>（随机密码）</small></a></li>
 	</ul>
+<p>
+	<em>
+	若您向管理员请求注册账户而被导引来这里，请直接告知那位管理员您测试通过的用户名即可，不要复制粘贴本页内容或截图。
+	</em>
+</p>
 EOF;
 }
 
 $pageContent = $pageContent . <<<EOF
-<h3>参见</h3>
+<h2>参见</h2>
 <ul>
 	<li>
 		<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:用户名方针" target="_blank">用户名方针</a>
@@ -257,8 +261,10 @@ $pageContent = $pageContent . <<<EOF
 		<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:一人一号" target="_blank">一人一号</a>
 	</li>
 </ul>
+EOF;
 
-<h3>免责声明</h3>
+$pageContent = $pageContent . <<<EOF
+<h2>免责声明</h2>
 <blockquote>
 	<p>作为自动化程序，本系统以一套既有的程序检查账户创建的技术可行性。囿于技术限制，本系统无法检测出所有违规用户名。即使某一用户名通过本系统检测，也不代表其一定符合适用法律的规定，更不代表其一定符合用户协议、社区公约、社区方针的条款。</p>
 	<p>对于本系统输出的结果，本网站运营者及该自动化程序的作者既不提供任何保证或担保，也不承担任何法律责任。使用本系统给出的判断结果，风险自担。</p>
