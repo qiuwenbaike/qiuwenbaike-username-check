@@ -1,12 +1,15 @@
 <?php
 // SPDX-License-Identifier: MIT
 
-// Loca Template
+// Local Template
 require_once __DIR__ . \DIRECTORY_SEPARATOR . 'utils' . \DIRECTORY_SEPARATOR . 'template.php';
 
 // Set UA
 ini_set('user_agent', 'Qiuwen/1.1 (Username-Check/1.0)');
 define(CURLOPT_USERAGENT, "Qiuwen/1.1 (Username-Check/1.0)");
+
+// Set header
+header("Cache-control: no-cache");
 
 // Set variables
 $api = 'https://www.qiuwenbaike.cn/api.php';
@@ -163,23 +166,23 @@ EOF;
 		}
 	}
 
-	if (preg_match("/(求闻|求聞|站长|站長|管理員|行政員|監管員|裁決委員|使用者核查員|使用者查核員|監督員|裁决委员|管理员|行政员|监管员|用户核查员|用户查核员|监督员|qiuwen|admin|sysop|moderator|bureaucrat|steward|checkuser|oversight)/i", $info["name"], $m)) {
-		$match = $m[1];
+	if (preg_match("/(求闻|求聞|站长|站長|管理員|行政員|監管員|裁決委員|使用者核查員|使用者查核員|監督員|裁决委员|管理员|行政员|监管员|用户核查员|用户查核员|监督员|qiuwen|admin|sysop|moderator|bureaucrat|steward|checkuser|oversight)/i", $info["name"], $mSysop)) {
+		$matchSysop = $mSysop[1];
 		$pageContent = $pageContent . <<<EOF
 	<li>
 		<span style="color: red;">
-			您的用户名包含了特定字词“$match ”，可能误导他人您的账户拥有特定权限。
+			您的用户名包含了特定字词“$matchSysop ”，可能误导他人您的账户拥有特定权限。
 		</span>
 	</li>
 	EOF;
 	}
 
-	if (preg_match("/(机器人|机械人|機器人|機械人|bot$)/i", $info["name"], $m)) {
+	if (preg_match("/(机器人|机械人|機器人|機械人|bot$)/i", $info["name"], $mBot)) {
+		$matchBot = $mBot[1];
 		$pageContent = $pageContent . <<<EOF
-	$match = $m[1];
 	<li>
 		<span style="color: red;">
-			您的用户名包含了特定字词“$match ”，可能误导他人您的账户是机器人账户，除非您要创建一个机器人账户。
+			您的用户名包含了特定字词“$matchBot ”，可能误导他人您的账户是机器人账户，除非您要创建一个机器人账户。
 		</span>
 	</li>
 	EOF;

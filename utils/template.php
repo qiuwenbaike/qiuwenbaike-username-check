@@ -3,7 +3,6 @@ require_once __DIR__ . \DIRECTORY_SEPARATOR . 'matomoJS.php';
 
 function pageTemplate($content)
 {
-	header("Cache-control: no-cache");
 	$matomo = matomoJS();
 	echo <<< EOF
 	<!DOCTYPE html>
