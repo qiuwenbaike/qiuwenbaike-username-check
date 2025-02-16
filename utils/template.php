@@ -1,16 +1,16 @@
 <?php
 require_once __DIR__ . \DIRECTORY_SEPARATOR . 'matomoJS.php';
 
-function pageTemplate($title, $content)
+function pageTemplate($content)
 {
-    $matomo = matomoJS();
-    echo <<< EOF
+	$matomo = matomoJS();
+	echo <<< EOF
 	<!DOCTYPE html>
 	<html lang="zh-hans" xml:lang="zh-hans">
 		<head>
 			<meta charset="utf-8" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-			<title>$title - 求闻百科手机号验证系统</title>
+			<title>求闻百科用户名检查</title>
 			<link rel="stylesheet" href="https://unc.qiuwen.net.cn/assets/styles.css" />
 		</head>
 		<body>
@@ -20,7 +20,7 @@ function pageTemplate($title, $content)
 				</a>
 			</header>
 			<main>
-				<h1>$title</h1>
+				<h1>求闻百科用户名检查</h1>
 				$content
 			</main>
 			<footer>

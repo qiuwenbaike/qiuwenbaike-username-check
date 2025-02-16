@@ -32,7 +32,7 @@ $pageContent = <<<EOF
 EOF;
 
 if ($user === "") {
-	pageTemplate('求闻百科用户名检查', $pageContent);
+	pageTemplate($pageContent);
 	exit();
 }
 
@@ -42,7 +42,7 @@ if ($res === false) {
 	$pageContent = $pageContent . <<<EOF
 	<p>检查时发生错误，请再试一次</p>
 	EOF;
-	pageTemplate('求闻百科用户名检查', $pageContent);
+	pageTemplate($pageContent);
 	exit();
 }
 
@@ -212,4 +212,4 @@ $pageContent = $pageContent . <<<EOF
 </ul>
 EOF;
 
-pageTemplate('求闻百科用户名检查', $pageContent);
+pageTemplate($pageContent);
