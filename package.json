@@ -1,0 +1,20 @@
+{
+	"name": "qiuwen-rnrs",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://git.qiuwen.net.cn/Fork/qiuwenbaike-username-check"
+	},
+	"scripts": {
+		"stylelint": "stylelint assets/*.css",
+		"stylelint:fix": "stylelint assets/*.css --fix",
+		"lint": "stylelint assets/*.css",
+		"lint:fix": "stylelint assets/*.css --fix"
+	},
+	"devDependencies": {
+		"stylelint": "^16.14.0",
+		"stylelint-config-css-modules": "^4.4.0",
+		"stylelint-config-wikimedia": "^0.18.0",
+		"stylelint-order": "^6.0.4"
+	}
+}

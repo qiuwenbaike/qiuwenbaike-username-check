@@ -1,0 +1,11 @@
+{
+	"plugins": ["stylelint-order"],
+	"extends": ["stylelint-config-wikimedia"],
+	"rules": {
+		"declaration-no-important": null,
+		"no-descending-specificity": null,
+		"selector-max-id": 1,
+		"selector-pseudo-element-colon-notation": null,
+		"selector-type-no-unknown": null
+	}
+}
