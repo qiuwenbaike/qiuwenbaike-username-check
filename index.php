@@ -84,8 +84,8 @@ if (isset($info["userid"])) {
 <p>原因：已被他人使用。</p>
 <p>参见：</p>
 <ul>
-	<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CentralAuth?target=$encodedNameCannotCreated" target="_blank">全域账号信息</a></li>
-	<li><a href="https://www.qiuwenbaike.cn/wiki/Special:UserRights?user=$encodedNameCannotCreated" target="_blank">权限授予信息</a></li>
+	<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CentralAuth?target=$encodedExistName" target="_blank">全域账号信息</a></li>
+	<li><a href="https://www.qiuwenbaike.cn/wiki/Special:UserRights?user=$encodedExistName" target="_blank">权限授予信息</a></li>
 </ul>
 EOF;
 }
