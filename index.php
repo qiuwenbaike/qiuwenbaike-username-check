@@ -127,8 +127,8 @@ if (
 	<span style="color: red;">
 		您的用户名不可建立。
 	</span>
-<p>
-<p>原因：</p>
+	原因如下：
+</p>
 <ul>
 EOF;
 
