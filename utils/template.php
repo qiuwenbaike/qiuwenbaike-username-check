@@ -23,15 +23,6 @@ function pageTemplate($content)
 				<h1>求闻百科用户名检查</h1>
 				$content
 				<h2>参见</h2>
-				<h3>求闻百科方针</h3>
-				<ul>
-					<li>
-						<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:用户名方针" title="用户名方针" target="_blank">用户名方针</a>
-					</li>
-					<li>
-						<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:一人一号" title="一人一号" target="_blank">一人一号</a>
-					</li>
-				</ul>
 				<h3>政府规章与规范性文件</h3>
 				<ul>
 					<li>
@@ -39,8 +30,17 @@ function pageTemplate($content)
 						<em>（2022年6月27日国家互联网信息办公室令第10号公布）</em>
 					</li>
 					<li>
-						《<a href="https://www.qiuwenbaike.cn/wiki/Addendum:互联网用户账号信息管理规定" title="互联网用户账号信息管理规定" target="_blank">互联网用户账号信息管理规定</a>》
+						《<a href="https://www.qiuwenbaike.cn/wiki/Addendum:互联网用户账号名称管理规定" title="互联网用户账号信息管理规定" target="_blank">互联网用户账号名称管理规定</a>》
 						<em>（2015年2月4日国家互联网信息办公室发布）</em>
+					</li>
+				</ul>
+				<h3>求闻百科方针</h3>
+				<ul>
+					<li>
+						<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:用户名方针" title="用户名方针" target="_blank">用户名方针</a>
+					</li>
+					<li>
+						<a href="https://www.qiuwenbaike.cn/wiki/Qiuwen:一人一号" title="一人一号" target="_blank">一人一号</a>
 					</li>
 				</ul>
 				<h2>免责声明</h2>
