@@ -166,8 +166,8 @@ if (isset($info["cancreate"])) {
 	</span>
 </p>
 	<ul>
-		<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$nameCannotCreated" target="_blank">立即创建</a></li>
-		<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$nameCannotCreated&wpCreateaccountMail=1"" target="_blank">立即创建（<small>随机密码</small>）</a></li>
+		<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCanCreate" target="_blank">立即创建</a></li>
+		<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCanCreate&wpCreateaccountMail=1"" target="_blank">立即创建（<small>随机密码</small>）</a></li>
 	</ul>
 EOF;
 }
