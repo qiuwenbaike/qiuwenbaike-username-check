@@ -26,7 +26,7 @@ $pageContent = <<<EOF
 		<input type="text" name="user" id="user" title="user" value="$encodedUser" required autofocus />
 	</p>
 	<p>
-		<input type="button" name="submit" id="submit" type="submit" value="检查" />
+		<input type="submit" name="submit" id="submit" value="检查" />
 	</p>
 </form>
 EOF;
