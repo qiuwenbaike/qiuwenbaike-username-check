@@ -107,6 +107,8 @@ ul {
 
 blockquote {
 	border-left: 0.25em solid #eaecf0;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
 	padding: 0.5em 2em;
 	font-family: 'Source Serif 4', 'DejaVu Serif', 'Liberation Serif', 'Linux Libertine', 'Georgia', 'Calibri', 'Times New Roman', 'Source Han Serif SC', 'Noto Serif CJK SC', 'STSong', 'SimSun', serif;
 }
