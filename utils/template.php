@@ -3,6 +3,7 @@ require_once __DIR__ . \DIRECTORY_SEPARATOR . 'matomoJS.php';
 
 function pageTemplate($content)
 {
+	header("Cache-control: no-cache");
 	$matomo = matomoJS();
 	echo <<< EOF
 	<!DOCTYPE html>
@@ -11,7 +12,7 @@ function pageTemplate($content)
 			<meta charset="utf-8" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 			<title>求闻百科用户名检查</title>
-			<link rel="stylesheet" href="https://unc.qiuwen.net.cn/assets/styles.css" />
+			<link rel="stylesheet" href="https://unc.qiuwen.net.cn/assets/styles.css?ver=20250216" />
 		</head>
 		<body>
 			<header>
