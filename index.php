@@ -39,7 +39,8 @@ if ($user === "") {
 	exit();
 }
 
-$url = 'https://login.qiuwenbaike.cn/api.php?action=query&format=json&list=users&usprop=cancreate&ususers=' . urlencode($user);
+$encodedUser =  urlencode($user);
+$url = 'https://login.qiuwenbaike.cn/api.php?action=query&format=json&list=users&usprop=cancreate&ususers=' . $encodedUser;
 $res = file_get_contents($url);
 if ($res === false) {
 	$pageContent = $pageContent . <<<EOF
@@ -151,9 +152,29 @@ EOF;
 			$pageContent = $pageContent . "<li>不可使用电子邮件地址作为用户名。</li>";
 		} else if ($message == "titleblacklist-forbidden-new-account") {
 			$pageContent = $pageContent . "<li>用户名包含列入黑名单的关键词。</li>";
+		} else if ($message == "antispoof-name-illegal") {
+			$url2 = 'https://login.qiuwenbaike.cn/api.php?action=query&format=json&list=users&usprop=cancreate&uselang=qqx&ususers=' . $encodedUser;
+			$res2 = file_get_contents($url2);
+			$info2 = json_decode($res2, true);
+			$info2 = $info2["query"]["users"][0];
+			$cancreateerror2 = $info2["cancreateerror"][0];
+			if ($cancreateerror2["params"][1] == "(antispoof-noletters)") {
+				$pageContent = $pageContent . "<li>不可使用纯数字用户名。</li>";
+			} else if ($cancreateerror2["params"][1] == "(antispoof-mixedscripts)") {
+				$pageContent = $pageContent . "<li>不可使用互不兼容的混合文字作为用户名（例如，不能中、英文混用）。</li>";
+			}
 		} else if ($message == "antispoof-conflict") {
 			$pageContent = $pageContent . "<li>用户名与其他用户名过于相似，请选择其它用户名。</li>";
 		} else {
+			if (isset($cancreateerror["params"])) {
+				for ($i = 1; $i <= count($cancreateerror["params"]); $i++) {
+					$param = $cancreateerror["params"][$i - 1];
+					if (is_array($param) && isset($param['num'])) {
+						$param = $param['num'];
+					}
+					$message = str_replace("$" . $i, $param, $message);
+				}
+			}
 			$pageContent = $pageContent . <<<EOF
 		<li>
 			<p>用户名因其他技术原因无法创建，请选择其它用户名。</p>
