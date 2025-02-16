@@ -153,7 +153,7 @@ EOF;
 		<p>仍要创建？</p>
 		<ul>
 			<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCannotCreated" target="_blank">继续创建</a></li>
-			<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCannotCreated&wpCreateaccountMail=1"" target="_blank">继续创建（<small>随机密码</small>）</a></li>
+			<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCannotCreated&wpCreateaccountMail=1"" target="_blank">继续创建<small>（随机密码）</small></a></li>
 		</ul>
 		EOF;
 	}
@@ -172,7 +172,7 @@ if (isset($info["cancreate"])) {
 </p>
 	<ul>
 		<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCanCreate" target="_blank">立即创建</a></li>
-		<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCanCreate&wpCreateaccountMail=1"" target="_blank">立即创建（<small>随机密码</small>）</a></li>
+		<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCanCreate&wpCreateaccountMail=1"" target="_blank">立即创建<small>（随机密码）</small></a></li>
 	</ul>
 EOF;
 }
