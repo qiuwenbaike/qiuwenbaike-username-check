@@ -25,7 +25,12 @@ function pageTemplate($content)
 			</main>
 			<footer>
 				<div class="footer-copyright">
-					<p>© 2019 Xiplus<br />© 2025 求闻百科贡献者</p>
+					<p>
+						© 2019 Xiplus；© 2025 求闻百科贡献者
+						<em>
+						（<a href="./LICENSE">MIT许可证</a>）
+						</em>
+					</p>
 					<p>
 						求闻®、求闻百科®、共笔全书®、“求”字商标、“绿竹”图标等文字、图形、图文组合，均是本网站运营者——<a
 							href="https://www.gongbiquanshu.cn"
