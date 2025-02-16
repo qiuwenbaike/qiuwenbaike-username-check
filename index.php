@@ -3,6 +3,7 @@ require_once(__DIR__ . \DIRECTORY_SEPARATOR . '/vendor/autoload.php');
 $int = new Intuition('qiuwenbaike-username-check');
 $int->registerDomain('qiuwenbaike-username-check', __DIR__ . \DIRECTORY_SEPARATOR . '/i18n');
 ini_set('user_agent', 'Qiuwen/1.1 (Username-Check/1.0)');
+define(CURLOPT_USERAGENT, "Qiuwen/1.1 (Username-Check/1.0)");
 ?>
 <!DOCTYPE html>
 <html>
