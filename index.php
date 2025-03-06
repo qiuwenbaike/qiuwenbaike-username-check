@@ -40,7 +40,7 @@ if ($user === "") {
 }
 
 $encodedUser =  urlencode($user);
-$url = 'https://login.qiuwenbaike.cn/api.php?action=query&format=json&list=users&usprop=cancreate&ususers=' . $encodedUser;
+$url = $api . '?action=query&format=json&list=users&usprop=cancreate&ususers=' . $encodedUser;
 $res = file_get_contents($url);
 if ($res === false) {
 	$pageContent = $pageContent . <<<EOF
@@ -239,10 +239,10 @@ if (isset($info["cancreate"])) {
 		此用户名可以建立。
 	</span>
 </p>
-	<ul>
-		<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCanCreate" target="_blank">立即创建</a></li>
-		<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCanCreate&wpCreateaccountMail=1"" target="_blank">立即创建<small>（随机密码）</small></a></li>
-	</ul>
+<ul>
+	<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCanCreate" target="_blank">立即创建</a></li>
+	<li><a href="https://www.qiuwenbaike.cn/wiki/Special:CreateAccount?wpName=$encodedNameCanCreate&wpCreateaccountMail=1"" target="_blank">立即创建<small>（随机密码）</small></a></li>
+</ul>
 <p>
 	<em>
 	若您向管理员请求注册账户而被导引来这里，请直接告知那位管理员您测试通过的用户名即可，不要复制粘贴本页内容或截图。
