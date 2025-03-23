@@ -14,10 +14,10 @@ function pageTemplate($content)
 			<meta name="referrer" content="origin-when-crossorigin" />
 			<meta name="referrer" content="origin-when-cross-origin" />
 			<meta name="robots" content="noindex,nofollow,max-image-preview:standard" />
-			<meta name="theme-color" content="#0d0e12" />
+			<meta name="theme-color" content="#36c" />
 			<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
 			<title>求闻百科用户名检查</title>
-			<link rel="stylesheet" href="https://unc.qiuwen.net.cn/assets/styles.css?ver=20250216" />
+			<link rel="stylesheet" href="./assets/styles.css?ver=20250323" />
 		</head>
 		<body>
 			<header>

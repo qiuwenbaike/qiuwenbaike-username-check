@@ -120,13 +120,22 @@ footer {
 }
 
 footer {
+	display: flex;
+	align-items: center;
+	place-content: center space-between;
+	flex-wrap: wrap;
 	margin: 2.5vh 0 10vh;
 	padding-top: 1em;
 	border-top: 1px solid #eaecf0;
-	font-size: 0.9em;
+	font-size: 0.875em;
+	gap: 0.5em;
 }
 
-.footer-links a {
+footer > div {
+	flex: 1 1 100%;
+}
+
+footer .footer-links a {
 	margin-right: 0.5em;
 	white-space: nowrap;
 }
