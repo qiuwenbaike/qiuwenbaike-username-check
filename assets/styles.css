@@ -4,7 +4,7 @@
 }
 
 html {
-	color-scheme: light dark;
+	color-scheme: light only;
 	width: 100%;
 	background: #fff;
 	color: #000;
@@ -152,6 +152,7 @@ footer .footer-buttons {
 	html {
 		box-shadow: none;
 		filter: invert( 1 ) hue-rotate( 180deg );
+		color-scheme: dark only;
 	}
 
 	canvas,
