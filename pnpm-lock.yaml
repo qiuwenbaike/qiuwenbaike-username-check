@@ -18,8 +18,8 @@ importers:
         specifier: ^0.18.0
         version: 0.18.0(postcss-less@6.0.0(postcss@8.5.8))(typescript@5.5.4)
       stylelint-order:
-        specifier: ^8.0.0
-        version: 8.0.0(stylelint@17.4.0(typescript@5.5.4))
+        specifier: ^8.1.1
+        version: 8.1.1(stylelint@17.4.0(typescript@5.5.4))
 
 packages:
 
@@ -781,8 +781,8 @@ packages:
     peerDependencies:
       stylelint: ^16.0.2
 
-  stylelint-order@8.0.0:
-    resolution: {integrity: sha512-1oAwPRz6Ba8u9LPjgvdbeMjZszHhjY6DBBK+xMlS3IC89GdTsvAPpGYvW+dkn6pxc4ZaI1S959g4c8CftZbhIg==}
+  stylelint-order@8.1.1:
+    resolution: {integrity: sha512-LqsEB6VggJuu5v10RtkrQsBObcdwBE7GuAOlwfc/LR3VL/w8UqKX2BOLIjhyGt0Gne/njo7gRNGiJAKhfmPMNw==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
       stylelint: ^16.18.0 || ^17.0.0
@@ -1575,7 +1575,7 @@ snapshots:
       postcss: 8.5.8
       stylelint: 16.12.0(typescript@5.5.4)
 
-  stylelint-order@8.0.0(stylelint@17.4.0(typescript@5.5.4)):
+  stylelint-order@8.1.1(stylelint@17.4.0(typescript@5.5.4)):
     dependencies:
       postcss: 8.5.8
       postcss-sorting: 10.0.0(postcss@8.5.8)
