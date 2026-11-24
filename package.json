@@ -12,7 +12,7 @@
 		"lint:fix": "stylelint assets/*.css --fix"
 	},
 	"devDependencies": {
-		"stylelint": "^17.16.0",
+		"stylelint": "^18.1.0",
 		"stylelint-config-wikimedia": "^0.19.4",
 		"stylelint-order": "^8.1.3"
 	}
